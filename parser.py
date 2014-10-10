@@ -129,6 +129,7 @@ class Parser():
 	def writeHtml(self):
 		filehandler = open(self.htmlpath, 'w')
 		htmlcontent = self.htmltpl.safe_substitute({'TITLE' : self.title, 'PATH' : self.folder, 'FILENAME' : self.filename, 'DATE' : self.date})
+		htmlcontent = htmlcontent.decode('gbk').encode('utf8')
 		try:
 			filehandler.write(htmlcontent)
 		finally:
@@ -144,6 +145,7 @@ class Parser():
 		
 		filehandler = open(self.jspath, 'w')
 		jscontent = self.jstpl.safe_substitute({'TITLE' : self.title, 'AUTHOR' : self.author, 'DATE' : self.datesep})
+		jscontent = jscontent.decode('gbk').encode('utf8')
 		try:
 			filehandler.write(jscontent)
 		finally:
@@ -159,6 +161,7 @@ class Parser():
 		
 		filehandler = open(self.lesspath, 'w')
 		lesscontent = self.lesstpl.safe_substitute({'TITLE' : self.title, 'AUTHOR' : self.author, 'DATE' : self.datesep})
+		lesscontent = lesscontent.decode('gbk').encode('utf8')
 		try:
 			filehandler.write(lesscontent)
 		finally:
