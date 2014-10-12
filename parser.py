@@ -119,9 +119,13 @@ class Parser():
 	
 	
 	def process(self):
+		#创建文件
 		self.writeHtml()
 		self.writeJs()
 		self.writeLess()
+
+		#打开文件
+		self.openfiles()
 		
 		print '完成'
 
@@ -166,6 +170,11 @@ class Parser():
 			filehandler.write(lesscontent)
 		finally:
 			filehandler.close()
+
+	def openfiles(self):
+		os.system('start ' + self.htmlpath)
+		os.system('start ' + self.lesspath)
+		os.system('start ' + self.jspath)
 
 if __name__ == '__main__':
 	print '-' * 29, '\nName  : FED generator\n', 'Author: feng_zilong@163.com\n', '-' * 29
